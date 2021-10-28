@@ -9,9 +9,9 @@ const port = process.env.PORT || 8000
 MongoClient.connect (
     process.env.RESTREVIEWS_DB_URI,
     {
-        poolSize: 50,
+        maxPoolSize: 50,
         wtimeout: 2500,
-        useNewURLParse: true
+        useNewUrlParser: true
     }
 )
 .catch(err => {
@@ -20,6 +20,6 @@ MongoClient.connect (
 })
 .then(async client => {
     app.listen(port, () => {
-        (`listening on port ${port}`)
+        console.log(`listening on port ${port}`)
     })
 })
