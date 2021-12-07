@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 class RestaurantDataService {
-    getAll(page = 0) {
+      getAll(page = 0) {
         return http.get(`?page=${page}`);
       }
     
@@ -22,7 +22,7 @@ class RestaurantDataService {
       }
     
       deleteReview(id, userId) {
-        return http.delete(`/review?id=${id}`);
+        return http.delete(`/review?id=${id}`, {data:{user_id: userId}});
       }
     
       getCuisines(id) {
